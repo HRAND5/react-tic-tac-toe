@@ -45,3 +45,7 @@
 .margin {
   flex-grow: 1;
 }
+
+.footer {
+  margin: auto;
+}

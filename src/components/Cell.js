@@ -15,8 +15,9 @@ class Cell extends Component {
     }
 
     render() {
+        let classes = `cell ${this.state.owner}`
         return (
-            <div className="cell" onClick={(event) => this.clickHandler(event)}>
+            <div id={this.props.id} className={classes} onClick={(event) => this.clickHandler(event)}>
 
             </div>
         )

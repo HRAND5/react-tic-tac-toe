@@ -1,0 +1,18 @@
+.grid {
+    border: 2px solid black;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-basis: 600px;
+    padding: 0px;
+    font-size: 16px;
+    line-height: 25px;
+    height: 600px;
+}
+
+.flexcontainer {
+    display: flex;
+}
+
+.row {
+    flex-grow: 1;
+}

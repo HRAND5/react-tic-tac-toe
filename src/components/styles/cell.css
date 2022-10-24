@@ -1,0 +1,18 @@
+.cell {
+    border: 2px solid black;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}

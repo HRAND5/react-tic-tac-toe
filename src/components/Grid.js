@@ -23,6 +23,9 @@ class Grid extends Component {
         let d1 = g[0] + g[4] + g[8]
         let d2 = g[2] + g[4] + g[6]
         
+        //console.log(d1)
+        //console.log(d2)
+
         //  A winner has been found if one of the sums is 3 or -3.
         // If a winner has been found, the sum of the two diagonals will always be positive if red has one, opposite if blue has one. This entire function could be a oneliner, although that would be considerably less readable. 
         return ((Math.abs(d1) == 3 || Math.abs(d2) == 3) ? Math.sign(d1 + d2) : 0)
@@ -70,8 +73,7 @@ class Grid extends Component {
             })
 
             let g = this.state.game 
-            g[clickedDiv.id] = this.state.turn ? "1" : "-1"
-            console.log(g)
+            g[clickedDiv.id] = this.state.turn ? 1 : -1
             this.setState({
                 turn: !this.state.turn,
                 winner: this.checkGameEnd(g)
@@ -93,9 +95,9 @@ class Grid extends Component {
         }
 
         return (
-                <div className="grid flexcontainer">
-                    {indexes[0].map(index => (this.createRow(index)))}         
-                </div>
+            <div className="grid flexcontainer">
+                {indexes[0].map(index => (this.createRow(index)))}         
+            </div>
         )
     }
 }

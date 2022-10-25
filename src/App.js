@@ -14,11 +14,6 @@ function App() {
         </Grid>
         <div className="margin"></div>
       </div>
-      <div>
-        <button>Restart Game</button>
-        <p>It's currently red's turn</p>
-      </div>
-      
     </div>
   );
 }

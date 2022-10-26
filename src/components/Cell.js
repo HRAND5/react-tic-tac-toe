@@ -6,7 +6,7 @@ class Cell extends Component {
         super(props)
 
         this.state = {
-            owner: ""
+            owner: "",
         }
     }
 

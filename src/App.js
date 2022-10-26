@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Grid from './components/Grid';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -10,7 +11,6 @@ function App() {
       <div className="flexcontainer">
         <div className="margin"></div>
         <Grid>
-        
         </Grid>
         <div className="margin"></div>
       </div>

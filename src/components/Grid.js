@@ -66,18 +66,21 @@ class Grid extends Component {
     }
 
     move(clickedCell, clickedDiv) {
-        if (clickedCell.state.owner == "") {
-            let color = this.state.turn ? "red" : "blue"
-            clickedCell.setState({
-                owner: color
-            })
+        if (!this.state.winner) {
+            if (clickedCell.state.owner == "") {
 
-            let g = this.state.game 
-            g[clickedDiv.id] = this.state.turn ? 1 : -1
-            this.setState({
-                turn: !this.state.turn,
-                winner: this.checkGameEnd(g)
-            })
+                let color = this.state.turn ? "red" : "blue"
+                clickedCell.setState({
+                    owner: color
+                })
+
+                let g = this.state.game 
+                g[clickedDiv.id] = this.state.turn ? 1 : -1
+                this.setState({
+                    turn: !this.state.turn,
+                    winner: this.checkGameEnd(g)
+                })
+            }
         }
     }
 
@@ -89,14 +92,29 @@ class Grid extends Component {
         )
     }
 
+    restartGame() {
+        this.setState({
+            game: Array.from({length: 9}, () => 0), 
+            turn: true,
+            winner: 0
+          })
+    }
+
     render() {
-        if (this.state.winner) {
-            console.log("The winner is " + this.state.winner)
+        let status = ""
+        if (!this.state.winner) {
+            status = `It is currently ${this.state.turn ? "red" : "blue"}'s turn`
+        } else {
+            status = `The winner is ${this.state.winner > 0 ? "red" : "blue"}!`
         }
 
         return (
-            <div className="grid flexcontainer">
-                {indexes[0].map(index => (this.createRow(index)))}         
+            <div>
+                <p>{status}</p>
+                <div className="grid flexcontainer">
+                    {indexes[0].map(index => (this.createRow(index)))}         
+                </div>
+                <button onClick={() => window.location.reload()}> Restart game</button>
             </div>
         )
     }
